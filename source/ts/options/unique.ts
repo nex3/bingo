@@ -6,11 +6,6 @@ import {TileGenerator} from '../tile-generator';
 /// to be instantiated manually, since `new Select()` will automatically
 /// translate plain strings into `Unique` options.
 export class Unique extends Option {
-  /// Converts a `string` or `number` to a `Unique`, or returns an `Option` as-is.
-  static wrap(item: Option | string | number): Option {
-    return item instanceof Option ? item : new Unique(item.toString());
-  }
-
   constructor(private readonly value: string) {
     super();
   }

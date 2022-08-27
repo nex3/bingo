@@ -1,17 +1,16 @@
 import 'chance';
 
-import {Option} from './option';
+import {Option, OptionLike} from './option';
 import {Tile} from '../tile';
 import {TileGenerator} from '../tile-generator';
-import {Unique} from './unique';
 
 /// An option that makes a weighted seletion from among an array of other options.
 export class Select extends Option {
   private readonly items: Option[];
 
-  constructor(items: Array<Option | string | number>) {
+  constructor(items: Array<OptionLike>) {
     super();
-    this.items = items.map(Unique.wrap);
+    this.items = items.map(Option.wrap);
   }
 
   build(rng: Chance.Chance): TileGenerator {

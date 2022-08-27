@@ -1,9 +1,9 @@
 import {F, N, O, R, S} from '../options';
 
-export const options = S([
+export const options = S(
   F(
     'Find {0}',
-    S([
+    [
       "Firekeeper's Eyes",
       'Soul a Firekeeper',
       'Dragon Torso Stone',
@@ -11,16 +11,16 @@ export const options = S([
       'Twinkling Dragon Torso Stone',
       'Twinkling Dragon Head Stone',
       'Coiled Sword Fragment',
-    ])
+    ]
   ),
   F("Complete Siegward's Questline."),
-  F('Kill {0} Monstrosities of Sin', O([1, 2, 3])),
-  F('Kill {0} Pontiff Beasts', O([1, 2, 3])),
-  F('Kill {0} Deep Accursed', O([1, 2])),
-  F('Kill {0} Demons', O([1, 2, 3, 4])),
+  F('Kill {0} Monstrosities of Sin', [1, 2, 3]),
+  F('Kill {0} Pontiff Beasts', [1, 2, 3]),
+  F('Kill {0} Deep Accursed', [1, 2]),
+  F('Kill {0} Demons', [1, 2, 3, 4]),
   F(
     'Find {0}',
-    N(5, [
+    [
       'Irithyll Straight Sword',
       'Irithyll Rapier',
       "Anri's Straightsword",
@@ -87,16 +87,16 @@ export const options = S([
       'Crystal Chime',
       'White Hair Talisman',
       "Caitha's Chime",
-    ])
-  ),
-  F('Collect {0} Estus Shards', O([5, 6, 7, 8, 9, 10, 11, 12, 13, 14])),
-  F('Collect {0} Undead Bone Shards', O([5, 6, 7, 8, 9])),
-  F('Do not exceed level {0}', O([40, 50, 60, 70, 80])),
+    ]
+  ).only(5),
+  F('Collect {0} Estus Shards', R(5, 14)),
+  F('Collect {0} Undead Bone Shards', [5, 6, 7, 8, 9]),
+  F('Do not exceed level {0}', [40, 50, 60, 70, 80]),
   F('Possess {0} souls at some point', R(100000, 400000)),
-  F('Kill {0} Elder Ghru', O([1, 2, 3, 4, 5, 6])),
+  F('Kill {0} Elder Ghru', [1, 2, 3, 4, 5, 6]),
   F(
     "Use {0}'s Soul",
-    N(3, [
+    [
       'Vordt',
       'Greatwood',
       'Gundyr',
@@ -117,11 +117,11 @@ export const options = S([
       'Deacon',
       'Nameless King',
       'Soul of Cinder',
-    ])
-  ),
+    ]
+  ).only(3),
   F(
     'Defeat {0} with a {1} only',
-    O([
+    [
       'Soul of Cinder',
       'Vordt',
       'Greatwood',
@@ -145,8 +145,8 @@ export const options = S([
       'Gravetender',
       'Ancient Wyver',
       'Halflight',
-    ]),
-    O([
+    ],
+    [
       'Dagger',
       'Straight Sword',
       'Greatsword',
@@ -170,6 +170,6 @@ export const options = S([
       'Sorcery',
       'Pyromancy',
       'Miracle',
-    ])
-  ),
-]);
+    ]
+  ).only(1),
+);

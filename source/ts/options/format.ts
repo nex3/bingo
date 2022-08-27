@@ -1,6 +1,6 @@
 import 'chance';
 
-import {Option} from './option';
+import {Option, OptionLike} from './option';
 import {Tile} from '../tile';
 import {TileGenerator} from '../tile-generator';
 
@@ -9,9 +9,9 @@ export class Format extends Option {
   /// The inner options that are used to fill in the format string.
   private readonly options: Option[];
 
-  constructor(private readonly format: string, ...options: Option[]) {
+  constructor(private readonly format: string, ...options: OptionLike[]) {
     super();
-    this.options = options;
+    this.options = options.map(Option.wrap);
   }
 
   build(rng: Chance.Chance): TileGenerator {
