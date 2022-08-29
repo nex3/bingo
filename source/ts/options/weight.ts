@@ -1,12 +1,11 @@
 import 'chance';
 
-import {Option} from './option';
+import {Option, OptionLike} from './option';
 import {Tile} from '../tile';
 import {TileGenerator} from '../tile-generator';
-import {Unique} from './unique';
 
-/// Wraps another option and gives it a specific weight. Can take multiple
-/// weights, which are used in order as more items are selected.
+/// Wraps another option and gives it a specific weight. Can take multiple weights, which are used
+/// in order as more items are selected.
 export class Weight extends Option {
   /// The weights to use for this option, in the order they should be used. The last weight in the
   /// list is used repeatedly.
@@ -15,10 +14,10 @@ export class Weight extends Option {
   /// The inner option whose weight is being modified.
   private readonly option: Option;
 
-  constructor(weights: number | number[], option: Option | string | number) {
+  constructor(weights: number | number[], option: OptionLike) {
     super();
     this.weights = weights instanceof Array ? weights : [weights];
-    this.option = Unique.wrap(option);
+    this.option = Option.wrap(option);
   }
 
   build(rng: Chance.Chance): TileGenerator {

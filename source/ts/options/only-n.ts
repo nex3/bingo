@@ -1,9 +1,8 @@
 import 'chance';
 
-import {Option} from './option';
+import {Option, OptionLike} from './option';
 import {Tile} from '../tile';
 import {TileGenerator} from '../tile-generator';
-import {Select} from './select';
 
 /// A wrapper option that limits the inner option to only returning up to `n` tiles.
 ///
@@ -12,9 +11,9 @@ export class OnlyN extends Option {
   /// The wrapped option.
   private readonly option: Option;
 
-  constructor(private readonly n: number, option: Option | Array<Option | string | number>) {
+  constructor(private readonly n: number, option: OptionLike) {
     super();
-    this.option = option instanceof Array ? new Select(option) : option;
+    this.option = Option.wrap(option);
   }
 
   build(rng: Chance.Chance): TileGenerator {
