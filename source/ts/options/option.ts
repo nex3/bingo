@@ -15,9 +15,9 @@ export type OptionLike = Option | string | number | Array<OptionLike>;
 export abstract class Option {
   /// Converts an `OptionLike` into a full `Option`.
   static wrap(option: OptionLike): Option {
-  if (option instanceof Option) return option;
-  if (option instanceof Array) return S(...option.map(Option.wrap));
-  return new Unique(option.toString());
+    if (option instanceof Option) return option;
+    if (option instanceof Array) return S(...option.map(Option.wrap));
+    return new Unique(option.toString());
   }
 
   /// Returns a generator object given a random number generator.
