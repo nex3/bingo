@@ -19,3 +19,6 @@ Some notes on specific bingo tiles:
 
 - "Without resting" includes anything that causes enemies to respawn, such as dying, fast traveling,
   using Homeward Idol, and so on.
+
+- "Defeat a mini/boss without ..." counts the entire boss fight for memory bosses with multiple
+  phases, even if one of those phases is replaced with a single-phase boss.
